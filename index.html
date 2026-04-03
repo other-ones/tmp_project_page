@@ -2,20 +2,86 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Project Page</title>
+  <title>Anonymous Project</title>
+
   <style>
-    body { font-family: Arial; max-width: 900px; margin: auto; }
-    h1 { margin-top: 40px; }
-    .pair { margin: 40px 0; }
-    .row { display: flex; gap: 20px; }
-    img { width: 100%; border: 1px solid #ddd; }
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px;
+      line-height: 1.6;
+    }
+
+    h1 { text-align: center; }
+    h2 { margin-top: 60px; }
+
+    .links {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .links a {
+      margin: 0 10px;
+      padding: 8px 14px;
+      border: 1px solid #ccc;
+      border-radius: 20px;
+      text-decoration: none;
+      color: black;
+    }
+
+    .pair {
+      margin: 50px 0;
+    }
+
+    .row {
+      display: flex;
+      gap: 20px;
+    }
+
+    .col {
+      flex: 1;
+    }
+
+    img {
+      width: 100%;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+
+    .label {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .prompt {
+      color: #555;
+      margin-bottom: 10px;
+    }
+
   </style>
 </head>
 
 <body>
 
-<h1>Anonymous Project</h1>
-<p>Baseline vs Ours comparison</p>
+<h1>Anonymous Project Title</h1>
+
+<p style="text-align:center;">
+  Anonymous Author · Anonymous Lab · 2026
+</p>
+
+<div class="links">
+  <a href="#">Paper</a>
+  <a href="#">Code</a>
+  <a href="#">Project Page</a>
+</div>
+
+<h2>Abstract</h2>
+<p>
+This page presents baseline vs ours comparisons. Each row shows a pair.
+</p>
+
+<h2>Baseline vs Ours</h2>
 
 <div id="container"></div>
 
@@ -23,23 +89,21 @@
 const pairs = [
   {
     name: "Pair 1",
-    baseline: "images/pic1.png",
-    ours: "images/pic2.png"
+    prompt: "A chair inspired by a flower",
+    baseline: "images/baseline1.png",
+    ours: "images/ours1.png"
   },
   {
-    name: "Pair 1",
-    baseline: "images/pic1.png",
-    ours: "images/pic2.png"
+    name: "Pair 2",
+    prompt: "A lamp inspired by a shell",
+    baseline: "images/baseline2.png",
+    ours: "images/ours2.png"
   },
   {
-    name: "Pair 1",
-    baseline: "images/pic1.png",
-    ours: "images/pic2.png"
-  },
-  {
-    name: "Pair 1",
-    baseline: "images/pic1.png",
-    ours: "images/pic2.png"
+    name: "Pair 3",
+    prompt: "A sneaker mixed with a bird",
+    baseline: "images/baseline3.png",
+    ours: "images/ours3.png"
   }
 ];
 
@@ -51,13 +115,16 @@ pairs.forEach(p => {
 
   div.innerHTML = `
     <h3>${p.name}</h3>
+    <div class="prompt">${p.prompt}</div>
+
     <div class="row">
-      <div>
-        <p>Baseline</p>
+      <div class="col">
+        <div class="label">Baseline</div>
         <img src="${p.baseline}">
       </div>
-      <div>
-        <p>Ours</p>
+
+      <div class="col">
+        <div class="label">Ours</div>
         <img src="${p.ours}">
       </div>
     </div>
